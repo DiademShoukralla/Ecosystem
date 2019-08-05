@@ -22,9 +22,14 @@ void setup(){
   button.setLocation(new PVector(30, 20));
   drawables.add(button);
   clickables.add(button);
+  
+  Fish fish = new Fish();
+  fish.setLocation(new PVector(300, 120));
+  drawables.add(fish);
 }
 
 void draw(){
+  background(230);
   for(Drawable drawable : drawables){
     push();
     drawable.update();

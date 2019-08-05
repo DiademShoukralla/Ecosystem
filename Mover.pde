@@ -6,6 +6,14 @@ abstract class Mover implements Drawable {
   
   PVector location, velocity, acceleration;
   
+  void setLocation(PVector location) {
+    this.location = location;
+  }
+  
+  PVector getLocation() {
+    return location;
+  }
+  
   Mover() {
     location = new PVector(0, 0);
     velocity = new PVector(0, 0);
@@ -19,8 +27,9 @@ abstract class Mover implements Drawable {
   }
   
   void updateAcceleration(){
-  
+    PVector cursor = new PVector(mouseX, mouseY);
+    PVector direction = PVector.sub(cursor, location);
+    direction.normalize();
+    PVector.mult(direction, 0.1, acceleration);
   }
-  
-  abstract void display();
 }
