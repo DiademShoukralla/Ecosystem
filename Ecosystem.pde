@@ -18,7 +18,7 @@ void setup(){
   activeClick = null;
   fullScreen();
   
-  Button button = new Button();
+  Button button = new Button("ESC");
   button.setLocation(new PVector(30, 20));
   drawables.add(button);
   clickables.add(button);
@@ -26,8 +26,10 @@ void setup(){
 
 void draw(){
   for(Drawable drawable : drawables){
+    push();
     drawable.update();
     drawable.display();
+    pop();
   }
 }
 
