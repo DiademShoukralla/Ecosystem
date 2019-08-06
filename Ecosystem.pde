@@ -26,6 +26,7 @@ void setup(){
   Fish fish = new Fish();
   fish.setLocation(new PVector(300, 120));
   drawables.add(fish);
+ 
 }
 
 void draw(){

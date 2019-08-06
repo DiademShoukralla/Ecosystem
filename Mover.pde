@@ -30,6 +30,6 @@ abstract class Mover implements Drawable {
     PVector cursor = new PVector(mouseX, mouseY);
     PVector direction = PVector.sub(cursor, location);
     direction.normalize();
-    PVector.mult(direction, 0.1, acceleration);
+    PVector.mult(direction, 0.3, acceleration);
   }
 }
