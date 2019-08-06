@@ -7,7 +7,7 @@ class Fish extends Mover {
     fish = createShape(GROUP);
     
     PShape head, body;
-    //ellipseMode(CORNER);
+    
     head = createShape(ELLIPSE, -25, 0, 50, 50);
     head.setFill(color(255));
     

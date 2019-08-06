@@ -22,10 +22,6 @@ void setup(){
   button.setLocation(new PVector(30, 20));
   drawables.add(button);
   clickables.add(button);
-  
-  Fish fish = new Fish();
-  fish.setLocation(new PVector(300, 120));
-  drawables.add(fish);
  
 }
 
@@ -46,11 +42,18 @@ void keyPressed() {
 }
 
 void mouseClicked(){
+  boolean hasClick = false;
   for(Clickable clickable : clickables){
     if(clickable.isMouseHover()) {
       clickable.click();
+      hasClick = true;
       break;
     }
+  }
+  if(!hasClick) {
+    Fish fish = new Fish();
+    fish.setLocation(new PVector(mouseX, mouseY));
+    drawables.add(fish);
   }
 }
 
