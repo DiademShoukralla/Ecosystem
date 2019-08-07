@@ -22,15 +22,19 @@ class Fish extends Mover {
     fish.addChild(head);
   }
   
-  void display() {
-    translate(location.x, location.y);
-    rotate(acceleration.heading());
-
-    shape(fish);
+  void update(){
+   if(mousePressed) {
+      PVector cursor = new PVector(mouseX, mouseY);
+      PVector distance = getLocation().sub(cursor);
+      PVector direction = distance.copy().normalize().mult(-log(distance.mag()));
+      applyForce(direction);
+    }
+    applyForce(getAcceleration().normalize().mult(1));
+    super.update();
   }
   
-  void update(){
-    super.update();
+  void display() {
+    shape(fish);
   }
 
 }

@@ -10,11 +10,13 @@ import java.util.List;
 
 List<Drawable> drawables;
 List<Clickable> clickables;
+List<Mover> movables;
 Clickable activeClick;
 
 void setup(){
   drawables = new ArrayList();
   clickables = new ArrayList();
+  movables = new ArrayList();
   activeClick = null;
   fullScreen();
   
@@ -22,17 +24,26 @@ void setup(){
   button.setLocation(new PVector(30, 20));
   drawables.add(button);
   clickables.add(button);
- 
+  
+  Fish fish;
+  for(int i = 0; i < 5; i++){
+    fish = new Fish();
+    fish.setLocation(new PVector(random(width), random(height)));
+    drawables.add(fish);
+  }
 }
 
 void draw(){
   background(230);
+
   for(Drawable drawable : drawables){
     push();
     drawable.update();
     drawable.display();
     pop();
   }
+  
+
 }
 
 void keyPressed() {
@@ -42,18 +53,11 @@ void keyPressed() {
 }
 
 void mouseClicked(){
-  boolean hasClick = false;
   for(Clickable clickable : clickables){
     if(clickable.isMouseHover()) {
       clickable.click();
-      hasClick = true;
       break;
     }
-  }
-  if(!hasClick) {
-    Fish fish = new Fish();
-    fish.setLocation(new PVector(mouseX, mouseY));
-    drawables.add(fish);
   }
 }
 
