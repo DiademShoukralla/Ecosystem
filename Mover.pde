@@ -20,7 +20,7 @@ abstract class Mover implements Drawable {
     location = new PVector(0, 0);
     velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
-    mass = random(1, 4);
+    mass = random(10, 20);
   }
   
   void update(){
