@@ -10,15 +10,13 @@ import java.util.List;
 
 List<Drawable> drawables;
 List<Clickable> clickables;
-List<Mover> movables;
 Clickable activeClick;
 
 void setup(){
   drawables = new ArrayList();
   clickables = new ArrayList();
-  movables = new ArrayList();
   activeClick = null;
-  fullScreen();
+  fullScreen(P2D);
   
   Button button = new Button("ESC");
   button.setLocation(new PVector(30, 20));

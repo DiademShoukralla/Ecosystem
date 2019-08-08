@@ -29,7 +29,7 @@ abstract class Mover implements Drawable {
     location.add(velocity);
     
     translate(location.x, location.y);
-    rotate(acceleration.heading());
+    rotate(velocity.heading());
     acceleration.mult(0);
   }
   

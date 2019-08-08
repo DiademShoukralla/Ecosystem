@@ -5,20 +5,21 @@ class Fish extends Mover {
   Fish() {
     super();
     fish = createShape(GROUP);
+    fish.setName("fish");
     
-    PShape head, body;
+    PShape head, tail;
     
-    head = createShape(ELLIPSE, -25, 0, 50, 50);
+    head = createShape(ELLIPSE, 0, 0, 50, 50);
+    head.setName("head");
     head.setFill(color(255));
+    head.setStroke(color(255));
     
-    body = createShape(PShape.PATH);
-    body.setStroke(0);
-    body.beginShape();    
-    body.vertex(0,  0);
-    body.vertex(-100,  0);
-    body.endShape();
+    tail = createShape(TRIANGLE, -100, 0, 0, -25, 0, 25);
+    tail.setName("tail");
+    tail.setFill(color(255));
+    tail.setStroke(color(255));
     
-    fish.addChild(body);
+    fish.addChild(tail);
     fish.addChild(head);
   }
   
