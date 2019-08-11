@@ -23,11 +23,17 @@ void setup(){
   drawables.add(button);
   clickables.add(button);
   
+  
+  PVector location = new PVector(random(width-500), random(height-800));
+  Liquid pond = new Liquid(location, 800, 800, 1);
+  drawables.add(pond);
+  
   Fish fish;
   for(int i = 0; i < 5; i++){
     fish = new Fish();
     fish.setLocation(new PVector(random(width), random(height)));
     drawables.add(fish);
+    pond.addInhabitant(fish);
   }
 }
 

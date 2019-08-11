@@ -14,7 +14,7 @@ class Fish extends Mover {
     headLoc = new PVector(0, 0);
     tailLoc = new PVector(-fishHeight, 0);
     
-    counter = 0;
+    counter = random(TWO_PI);
   }
   
   void update(){
@@ -24,10 +24,9 @@ class Fish extends Mover {
       PVector distance = getLocation().sub(cursor);
       PVector direction = distance.copy().normalize();
       applyForce(direction.mult(-log(distance.mag())));
-      direction.add(new PVector(cos(counter), 0));
+      direction.add(new PVector(cos(counter)*5, 0));
       applyForce(direction);
     }
-    applyForce(new PVector(0, cos(counter)*acceleration.mag()*5));
     super.update();
   }
   
